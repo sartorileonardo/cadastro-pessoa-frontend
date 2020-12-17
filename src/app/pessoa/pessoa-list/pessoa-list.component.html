@@ -14,8 +14,8 @@
         <input [(ngModel)]="filter.nome" id="nome" name="nome" class="form-control">
       </div>
       
-      <button (click)="search()" [disabled]="!f?.valid" class="btn btn-primary">Search</button>
-      <a [routerLink]="['../pessoas', 'new' ]" class="btn btn-default">New</a>
+      <button (click)="search()" [disabled]="!f?.valid" class="btn btn-primary">Pesquisar</button>
+      <a [routerLink]="['../pessoas', 'new' ]" class="btn btn-default">Adicionar</a>
     </form>
   </div>
 </div>
@@ -48,8 +48,8 @@
           <td>{{item.nacionalidade}}</td>
           <td>{{item.cpf}}</td>
           <td style="white-space: nowrap">
-            <a [routerLink]="['../pessoas', item.id ]" class="btn btn-secondary">Edit</a>&nbsp;
-            <button (click)="delete(item)" class="btn btn-danger">Delete</button>
+            <a [routerLink]="['../pessoas', item.id ]" class="btn btn-secondary">Editar</a>&nbsp;
+            <button (click)="delete(item)" class="btn btn-danger">Remover</button>
           </td>
         </tr>
       </tbody>
