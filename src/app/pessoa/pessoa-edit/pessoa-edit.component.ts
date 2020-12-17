@@ -38,7 +38,7 @@ export class PessoaEditComponent implements OnInit {
           this.feedback = {};
         },
         err => {
-          this.feedback = {type: 'warning', message: 'Error loading'};
+          this.feedback = {type: 'warning', message: 'Erro ao carregar a lista de pessoas cadastradas'};
         }
       );
   }
@@ -47,13 +47,13 @@ export class PessoaEditComponent implements OnInit {
     this.pessoaService.save(this.pessoa).subscribe(
       pessoa => {
         this.pessoa = pessoa;
-        this.feedback = {type: 'success', message: 'Save was successful!'};
+        this.feedback = {type: 'success', message: 'Salvo com sucesso!'};
         setTimeout(() => {
           this.router.navigate(['/pessoas']);
         }, 1000);
       },
       err => {
-        this.feedback = {type: 'warning', message: 'Error saving'};
+        this.feedback = {type: 'warning', message: 'Desculpe, ocorreu um erro ao salvar: '+err.message};
       }
     );
   }

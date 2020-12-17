@@ -18,7 +18,7 @@
     
       <div class="form-group">
         <label for="nome">Nome</label>
-        <input [(ngModel)]="pessoa.nome" id="nome" name="nome" class="form-control">
+        <input [(ngModel)]="pessoa.nome" id="nome" name="nome" class="form-control" maxlength="100">
       </div>
     
       <div class="form-group">
@@ -28,7 +28,7 @@
     
       <div class="form-group">
         <label for="email">Email</label>
-        <input [(ngModel)]="pessoa.email" id="email" name="email" class="form-control">
+        <input [(ngModel)]="pessoa.email" id="email" name="email" class="form-control" maxlength="100">
       </div>
     
       <div class="form-group">
@@ -38,17 +38,17 @@
     
       <div class="form-group">
         <label for="naturalidade">Naturalidade</label>
-        <input [(ngModel)]="pessoa.naturalidade" id="naturalidade" name="naturalidade" class="form-control">
+        <input [(ngModel)]="pessoa.naturalidade" id="naturalidade" name="naturalidade" class="form-control" maxlength="100">
       </div>
     
       <div class="form-group">
         <label for="nacionalidade">Nacionalidade</label>
-        <input [(ngModel)]="pessoa.nacionalidade" id="nacionalidade" name="nacionalidade" class="form-control">
+        <input [(ngModel)]="pessoa.nacionalidade" id="nacionalidade" name="nacionalidade" class="form-control" maxlength="100">
       </div>
     
       <div class="form-group">
         <label for="cpf">CPF</label>
-        <input [(ngModel)]="pessoa.cpf" id="cpf" name="cpf" class="form-control">
+        <input [(ngModel)]="pessoa.cpf" id="cpf" name="cpf" class="form-control" maxlength="100">
       </div>
     
       <button type="submit" class="btn btn-primary" [disabled]="!editForm.form.valid">Save</button>
