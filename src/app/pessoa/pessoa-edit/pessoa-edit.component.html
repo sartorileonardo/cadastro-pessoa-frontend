@@ -48,7 +48,7 @@
     
       <div class="form-group">
         <label for="cpf">CPF</label>
-        <input [(ngModel)]="pessoa.cpf" id="cpf" name="cpf" class="form-control" maxlength="100">
+        <input [(ngModel)]="pessoa.cpf" id="cpf" name="cpf" class="form-control" maxlength="14">
       </div>
     
       <button type="submit" class="btn btn-primary" [disabled]="!editForm.form.valid">Save</button>

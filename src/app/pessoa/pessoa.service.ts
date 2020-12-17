@@ -10,6 +10,7 @@ const headers = new HttpHeaders().set('Accept', 'application/json');
 export class PessoaService {
   pessoaList: Pessoa[] = [];
   api = 'http://localhost:8888/pessoas';
+  apiSearch = '/findByName/';
 
   constructor(private http: HttpClient) {
   }
@@ -17,13 +18,13 @@ export class PessoaService {
   findById(id: string): Observable<Pessoa> {
     const url = `${this.api}/${id}`;
     const params = { id: id };
-    return this.http.get<Pessoa>(url, {params, headers});
+    return this.http.get<Pessoa>(url, { params, headers });
   }
 
   load(filter: PessoaFilter): void {
     this.find(filter).subscribe(result => {
-        this.pessoaList = result;
-      },
+      this.pessoaList = result;
+    },
       err => {
         console.error('error loading', err);
       }
@@ -34,8 +35,7 @@ export class PessoaService {
     const params = {
       'nome': filter.nome,
     };
-
-    return this.http.get<Pessoa[]>(this.api, {params, headers});
+    return filter.nome !== "" ? this.http.get<Pessoa[]>(this.api + this.apiSearch + filter.nome, {}) : this.http.get<Pessoa[]>(this.api, { params, headers });
   }
 
   save(entity: Pessoa): Observable<Pessoa> {
@@ -44,10 +44,10 @@ export class PessoaService {
     if (entity.id) {
       url = `${this.api}/${entity.id.toString()}`;
       params = new HttpParams().set('ID', entity.id.toString());
-      return this.http.put<Pessoa>(url, entity, {headers, params});
+      return this.http.put<Pessoa>(url, entity, { headers, params });
     } else {
       url = `${this.api}`;
-      return this.http.post<Pessoa>(url, entity, {headers, params});
+      return this.http.post<Pessoa>(url, entity, { headers, params });
     }
   }
 
@@ -57,7 +57,7 @@ export class PessoaService {
     if (entity.id) {
       url = `${this.api}/${entity.id.toString()}`;
       params = new HttpParams().set('ID', entity.id.toString());
-      return this.http.delete<Pessoa>(url, {headers, params});
+      return this.http.delete<Pessoa>(url, { headers, params });
     }
     return null;
   }
